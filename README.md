@@ -76,3 +76,30 @@ SWICTH1# show etherchannel port-channel
 SWICTH1# show interface port-channel 1
 
 ```
+
+## EtherChannel Load Balancing
+
+The calculated load balancing hash determines which physical interface will be used to forward the packet. The load balancing method can be configured using the ‘port-channel load-balance <hash>’ global configuration command and have the following hash options or keywords which are based on the source and destination IP address, MAC address, and TCP/UDP ports:
+
+1. dst-ip – Destination IP address
+2. dst-mac – Destination MAC address
+3. dst-port – Destination TCP/UDP port
+4. dst-mixed-ip-port – Destination IP address and destination TCP/UDP port
+5. src-ip – Source IP address
+6. src-mac – Source MAC address
+7. src-port – Source TCP/UDP port
+8. src-dst-ip – Source and destination IP addresses
+9. src-dest-ip-only – Source and destination IP addresses only
+10. src-dst-mac – Source and destination MAC addresses
+11. src-dst-port – Source and destination TCP/UDP ports only
+12. src-mixed-ip-port – Source IP address and source TCP/UDP port
+13. src-dst-mixed-ip-port – Source and destination IP addresses and source and destination TCP/UDP ports
+
+Config example
+```
+SWITCH1(config)#port-channel load-balance dst-mac
+```
+verify the configuration
+```
+SWITCH1# show etherchannel load-balance
+```
