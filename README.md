@@ -103,3 +103,12 @@ verify the configuration
 ```
 SWITCH1# show etherchannel load-balance
 ```
+
+##L3 EtherChannel ?
+
+Just assign IP
+
+```
+Router(config)# interface port-channel 1
+Router(config-if)# ip address <ip_address> <subnet_mask>
+```
